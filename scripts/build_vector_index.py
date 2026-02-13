@@ -5,6 +5,9 @@ import faiss
 import torch
 from tqdm import tqdm
 from sentence_transformers import SentenceTransformer
+import logging
+
+logging.basicConfig(filename="embedding.log", level=logging.INFO)
 
 # Paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -18,6 +21,9 @@ CHECKPOINT_PATH = os.path.join(PROJECT_ROOT, "processed", "embedding_checkpoint.
 MODEL_NAME = "BAAI/bge-large-en-v1.5"
 BATCH_SIZE = 64
 SAVE_INTERVAL = 5000  # save FAISS every N chunks
+
+print("Index path:", INDEX_PATH)
+print("Checkpoint path:", CHECKPOINT_PATH)
 
 
 def load_checkpoint():

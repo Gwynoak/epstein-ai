@@ -12,6 +12,7 @@ python -m pip install --upgrade pip
 echo Installing PyMuPDF
 pip install pymupdf
 
+:: cu128 is used for 50 series cards. Change the cu type at the end of the download URL to retreive the version that supports your card
 echo Installing latest CUDA-enabled PyTorch...
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 

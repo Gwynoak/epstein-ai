@@ -4,7 +4,19 @@ __pycache__/
 *.pyc
 
 # Data
-raw_pdfs/
+raw_pdfs/Dataset 1
+raw_pdfs/Dataset 2
+raw_pdfs/Dataset 3
+raw_pdfs/Dataset 4
+raw_pdfs/Dataset 5
+raw_pdfs/Dataset 6
+raw_pdfs/Dataset 7
+raw_pdfs/Dataset 8
+raw_pdfs/Dataset 9
+raw_pdfs/Dataset 10
+raw_pdfs/Dataset 11
+raw_pdfs/Dataset 12
+
 processed/documents.jsonl
 processed/chunks.jsonl
 processed/faiss.index
