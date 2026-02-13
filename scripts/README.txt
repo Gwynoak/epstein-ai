@@ -16,13 +16,16 @@ Steps From ZERO:
 5. Enter the venv and run ingest_pdf.py
 6. Once complete, run chunk_documents.py
 7. Run verify_gpu.bat
-8. 
+    It will spit out your GPU type and CUDA version. install_env will use pytorch cu128 for 50 series cards, you may need to adjust this
+    If it does not send this information it means you are running on CPU, this is possible but will take too long. Troubleshoot this process
+8. Run run_vector.bat
+    This creates the vectorized index for the LLM
+9. TBC
 
 
 
 
-
-
+#If you have documents.jsonl and chunks.jsonl already
 
 Steps:
 

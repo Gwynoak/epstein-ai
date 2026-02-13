@@ -23,6 +23,9 @@ processed/faiss.index
 processed/chunk_metadata.jsonl
 processed/embedding_checkpoint.json
 
+# Scripts
+commit.bat
+
 # OS
 .DS_Store
 Thumbs.db
