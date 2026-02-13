@@ -9,6 +9,9 @@ call venv\Scripts\activate
 
 python -m pip install --upgrade pip
 
+echo Installing PyMuPDF
+pip install pymupdf
+
 echo Installing latest CUDA-enabled PyTorch...
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 
