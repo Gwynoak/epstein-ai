@@ -1,0 +1,16 @@
+# Python
+venv311/
+__pycache__/
+*.pyc
+
+# Data
+raw_pdfs/
+processed/documents.jsonl
+processed/chunks.jsonl
+processed/faiss.index
+processed/chunk_metadata.jsonl
+processed/embedding_checkpoint.json
+
+# OS
+.DS_Store
+Thumbs.db
