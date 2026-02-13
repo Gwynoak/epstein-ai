@@ -17,6 +17,8 @@ raw_pdfs/Dataset 10
 raw_pdfs/Dataset 11
 raw_pdfs/Dataset 12
 
+raw_warc
+
 processed/documents.jsonl
 processed/chunks.jsonl
 processed/faiss.index
@@ -25,6 +27,7 @@ processed/embedding_checkpoint.json
 
 # Scripts
 commit.bat
+venv.bat
 
 # OS
 .DS_Store

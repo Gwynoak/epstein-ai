@@ -5,7 +5,7 @@ DESCRIPTION:
     This is allow people to check statements and explore the files without navigating the 1M+ PDFs that are available.
     This project ingests DOJ PDF datasets, extracts structured text, chunks documents, builds semantic vector indexes (BGE-large), and builds entity indexes for investigative querying.
 
-
+==============================================================================================================================================
 Steps From ZERO:
 
 1. Install Python 3.11 (64-bit) https://www.python.org/downloads/release/python-31114/ ## 3.11 is required as some libraries will not support newer versions ##
@@ -20,13 +20,14 @@ Steps From ZERO:
     If it does not send this information it means you are running on CPU, this is possible but will take too long. Troubleshoot this process
 8. Run run_vector.bat
     This creates the vectorized index for the LLM
-9. TBC
+9. TBC...
+==============================================================================================================================================
 
 
 
 
 #If you have documents.jsonl and chunks.jsonl already
-
+==============================================================================================================================================
 Steps:
 
 1. Install Python 3.11 (64-bit) https://www.python.org/downloads/release/python-31114/ ## 3.11 is required as some libraries will not support newer versions ##
@@ -37,4 +38,23 @@ Steps:
 6. If interrupted, just run run_vector.bat again. It resumes automatically.
 
 Do NOT modify chunks.jsonl during embedding. Set it and forget it.
+==============================================================================================================================================
 
+Tool Scripts:
+
+analyze_discarded.py
+    This was to pass through discarded and see what word counts we had to determine how much data was worth retrieving
+
+inspect_warc.py
+    When dealing with the copy of database 9 I got, the files came as warc.gz I needed a way to read what was in them before scripting
+    for the unpacking (ChatGPT did the script, not me, I'm just along for the ride here).
+
+recover_discarded_documents.py
+    This is used to scrub through the discarded.jsonl file. ingest_pdf.py discards anything < 300 words. This is great for initial pass
+    but for data integrity I decided to go back through with more complex value detection to catch short but valued information.
+
+test_dupe.py
+    This was used on DS 9 to ensure there were no duplicate PDFs. Could be used on any root folder though.
+
+warc_test_extract.py
+    This was used to extract a DS 9 warc file and determine what the crawler's layout was so it could be adapted.
