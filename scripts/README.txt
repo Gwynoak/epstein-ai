@@ -5,7 +5,12 @@ DESCRIPTION:
     This is allow people to check statements and explore the files without navigating the 1M+ PDFs that are available.
     This project ingests DOJ PDF datasets, extracts structured text, chunks documents, builds semantic vector indexes (BGE-large), and builds entity indexes for investigative querying.
 
+
+Processed Dataset Link:
+https://drive.google.com/drive/folders/1n6zRCRZk87O5dvGH2Z7F5MaytmaHMFot?usp=sharing
+
 ==============================================================================================================================================
+
 Steps From ZERO:
 
 1. Install Python 3.11 (64-bit) https://www.python.org/downloads/release/python-31114/ ## 3.11 is required as some libraries will not support newer versions ##
@@ -21,13 +26,15 @@ Steps From ZERO:
 8. Run run_vector.bat
     This creates the vectorized index for the LLM
 9. TBC...
+
 ==============================================================================================================================================
 
 
 
 
-#If you have documents.jsonl and chunks.jsonl already
+If you have documents.jsonl and chunks.jsonl already
 ==============================================================================================================================================
+
 Steps:
 
 1. Install Python 3.11 (64-bit) https://www.python.org/downloads/release/python-31114/ ## 3.11 is required as some libraries will not support newer versions ##
@@ -38,12 +45,13 @@ Steps:
 6. If interrupted, just run run_vector.bat again. It resumes automatically.
 
 Do NOT modify chunks.jsonl during embedding. Set it and forget it.
+
 ==============================================================================================================================================
 
 Tool Scripts:
 
 analyze_discarded.py
-    This was to pass through discarded and see what word counts we had to determine how much data was worth retrieving
+    This was to pass through discarded.jsonl and see what word counts we had to determine how much data was worth retrieving.
 
 inspect_warc.py
     When dealing with the copy of database 9 I got, the files came as warc.gz I needed a way to read what was in them before scripting
@@ -54,7 +62,14 @@ recover_discarded_documents.py
     but for data integrity I decided to go back through with more complex value detection to catch short but valued information.
 
 test_dupe.py
-    This was used on DS 9 to ensure there were no duplicate PDFs. Could be used on any root folder though.
+    This was used on Dataset 9 to ensure there were no duplicate PDFs. Could be used on any root folder though.
 
 warc_test_extract.py
-    This was used to extract a DS 9 warc file and determine what the crawler's layout was so it could be adapted.
+    This was used to extract a Dataset 9 warc file and determine what the crawler's layout was so it could be adapted.
+
+SERVER SCRIPT vs NON-SERVER
+==============================================================================================================================================
+Half way through this project I gained access to a well equipped DELL server with 44 cores and over 300GB of RAM. At this point I needed to re-ingest all of my PDF
+to preserve white-space. ingest_pdf.py collapses all white space but I needed to iterate through to remove boilerplate text like headers and confidentiality notices.
+The problem is that this is hard to hash without white-space preserved. This means that ingest_preserved_server.py is optimal for ingestion. If you are reading this, you will 
+need to adjust this script for your own hardware unless you have 88 logic cores and 300GB of RAM laying around (like I miraculously did).
